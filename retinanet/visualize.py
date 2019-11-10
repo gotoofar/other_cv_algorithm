@@ -19,6 +19,7 @@ from dataloader import CocoDataset, CSVDataset, collater, Resizer, AspectRatioBa
 
 colors={'000':(0, 0, 255),'001':(0, 255, 0),'002':(255, 0, 0),'003':(0, 255, 255),'004':(255, 0, 255),'005':(255, 255, 0),'006':(255, 255, 255),'007':(0, 127, 127),'008':(127, 0, 255)}
 
+#保存检测好的画了框图片 位置
 save_path="/home/cbird/work/data/data_big2/valresult"
 if os.path.exists(save_path) != True:
     os.makedirs(save_path)

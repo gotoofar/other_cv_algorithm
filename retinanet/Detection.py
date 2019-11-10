@@ -28,6 +28,7 @@ from torchvision import datasets, models, transforms
 
 from val_dataloader import Mycollater,MyResizer,MyDataset,MyNormalizer,MyUnNormalizer
 
+#不同的类 用不同的颜色标注
 colors = {'000': (0, 0, 255), '001': (0, 255, 0), '002': (255, 0, 0), '003': (0, 255, 255), '004': (255, 0, 255),
           '005': (255, 255, 0), '006': (255, 255, 255), '007': (0, 127, 127), '008': (127, 0, 255)}
 
@@ -108,11 +109,14 @@ def Detect(csv_val,csv_classes,model,save_path,out_csv):
 
 
 if __name__ == '__main__':
-
+    #模型位置
     model='/home/cbird/work/net/retinanet/csv_retinanetbig_91.pt'
+    #测试图片位置
     valimg_folder='/home/cbird/work/data/data_big2/val'
     csv_class='/home/cbird/work/data/data_big2/class_csv'
+    #输出的csv
     out_csv = '/home/cbird/work/data/data_big2/result_csv'
+    #保存结果图像的位置
     save_path = "/home/cbird/work/data/data_big2/valresult"        # if you wanna save the img with rectangle
 
     if os.path.exists(save_path) != True:
