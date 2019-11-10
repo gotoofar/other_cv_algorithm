@@ -38,8 +38,8 @@ class_csv里面是类别名与索引数字
 	python visualize.py --dataset csv --csv_classes <path/to/train/class_list.csv>  --csv_val <path/to/val_annots.csv> --model <path/to/model.pt>
 
 
-因为训练和测试时对数据的处理有差异，所以修改了dataloader写了一个val_dataloader，具体在Detectron.py和Map_txtout.py里有引用
-因为用pycharm比较习惯，就写了两个可以直接run的，分别保存csv和txt的测试程序，路径什么的都在程序里面修改
-Detection.py   保存csv结果以及测试结果图片
-Map_txtout.py  保存txt结果以及测试结果图片（Map的计算用这个格式的txt，所以专门写的）
+因为训练和测试时对数据的处理有差异，所以修改了dataloader写了一个val_dataloader，具体在Detectron.py和Map_txtout.py里有引用  
+因为用pycharm比较习惯，就写了两个可以直接run的，分别保存csv和txt的测试程序，路径什么的都在程序里面修改  
+Detection.py   保存csv结果以及测试结果图片  
+Map_txtout.py  保存txt结果以及测试结果图片（Map的计算用这个格式的txt，所以专门写的)  
 仅仅是方便，没有什么扩展
