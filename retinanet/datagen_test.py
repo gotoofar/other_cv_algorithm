@@ -14,11 +14,11 @@ else:
     import xml.etree.ElementTree as ET
 
 
-
+#xml转txt
 def totxt():
-    xml_path='G:/jupyter_proj/SSD_py/binghai_after/K_outxml'    #文件夹位置
-    image_sets = 'G:/jupyter_proj/SSD_py/binghai_after/ImageSet/Main/trainval.txt'    # 训练样本集
-    out_train_txt='G:/jupyter_proj/retinanet1/data_myself/train.txt'
+    xml_path='G:/git_folder/retinanet/data_big/Annotations'   #文件夹位置
+    #image_sets = 'G:/git_folder/retinanet/data_big/ImageSet/Main/trainval.txt'    # 训练样本集
+    out_train_txt='G:/git_folder/retinanet/data_big/train.txt'
 
     f = open(out_train_txt, "w")
     xml_list = os.listdir(xml_path)
@@ -44,10 +44,21 @@ def totxt():
 
             #写入文件
 
+
+
+#xml文件转为retinanet可用的csv文件
+
+# 顺便把class_csv也生成
+
 def tocsv():
-    xml_file='/home/cbird/work/data/data_big2/val_xml'
-    out_csv='/home/cbird/work/data/data_big2/val_csv'
-    class_csv='/home/cbird/work/data/data_big2/class_csv'
+    #标注文件位置
+    xml_file='G:/git_folder/retinanet/data_big/Annotations'
+    #输出的csv位置
+    out_csv='G:/git_folder/retinanet/data_big/test_csv'
+    class_csv='G:/git_folder/retinanet/data_big/classtest_csv'
+
+    #图像的位置
+    img_path='/home/cbird/work/data/data_big2/val/'
 
     csv_file=open(out_csv,'w',newline='')
     class_file=open(class_csv,'w',newline='')
@@ -56,7 +67,7 @@ def tocsv():
     xml_list=os.listdir(xml_file)
 
 
-
+#class_csv里面需要放的东西  这里写得有点笨了
     class_writer.writerow(['000','0'])
     class_writer.writerow(['001','1'])
     class_writer.writerow(['002','2'])
@@ -81,12 +92,12 @@ def tocsv():
                 cur_pt=bbox.find(pt).text
                 bndbox.append(cur_pt)
             classname = obj.find('name').text
-            writer.writerow(['/home/cbird/work/data/data_big2/val/'+xml[:-3] + 'jpg',bndbox[0],bndbox[1],bndbox[2],bndbox[3],classname])
+            writer.writerow([img_path+xml[:-3] + 'jpg',bndbox[0],bndbox[1],bndbox[2],bndbox[3],classname])
 
 
 
 if __name__ == '__main__':
-    tocsv()
+    totxt()
 
 
 
